@@ -1,0 +1,16 @@
+IntentFilter packateAddFilter = new IntentFilter();
+			packateAddFilter.addAction(Intent.ACTION_PACKAGE_ADDED);
+			packateAddFilter.addDataScheme("package");//当intent为隐士意图 需要匹配url
+			registerReceiver(mConnectionMonitor, packateAddFilter);
+			
+			
+Uri uri = null;
+					if("TV".equals(type)){
+						uri = Uri.fromFile(new File(url));//播放本地路径
+					}else{
+						uri = Uri.parse(url);//播放网络地址
+					}
+			        // 调用系统自带的播放器来播放流媒体视频
+			        Intent intent = new Intent(Intent.ACTION_VIEW);
+			        intent.setDataAndType(uri, "video/*");
+			        context.startActivity(intent);
