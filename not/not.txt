@@ -14,3 +14,6 @@ Uri uri = null;
 			        Intent intent = new Intent(Intent.ACTION_VIEW);
 			        intent.setDataAndType(uri, "video/*");
 			        context.startActivity(intent);
+					
+					
+					//hahahahah
